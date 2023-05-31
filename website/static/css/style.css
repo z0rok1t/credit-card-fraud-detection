@@ -1,0 +1,43 @@
+/* Custom Bootstrap theme styles can be added here */
+.bg-custom {
+  background-color: #2a85d4;
+}
+
+.text-custom {
+  color: #a5536f;
+}
+
+html, body {
+  height: 100%;
+}
+nav div ul li {
+  display: inline-block;
+  color: rgb(35, 36, 35);
+  margin-left: 5em;
+}
+nav div ul li:first-child {
+  margin-left: 21em;
+}
+nav div ul li:last-child {
+  margin-left: 15em;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+}
+/* custom.css */
+.section-image {
+  display: block;
+  width: 50%;
+  height: auto;
+  margin-left: 25%;
+  margin-bottom: 3%;
+}
+p {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: #320917;
+}
