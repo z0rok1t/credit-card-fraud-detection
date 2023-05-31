@@ -18,6 +18,12 @@ def contact(request):
 def data(request):
     return render(request, 'data.html')
 
+def prediction(request):
+    return render(request, 'home1.html')
+
+def results(request):
+    return render(request, 'results.html')
+
 def home1(request):
     return render(request, 'home1.html')
 
@@ -34,7 +40,7 @@ def login_user(request):
             #messages.success(request, "You have been logged in!")
             return redirect('home1')   #profile after its created
         else: 
-            messages.success(request, "There was an error, Try again!")
+            messages.success(request, "Username or password is incorrect, Try again!")
             return redirect('login')
     else: 
         return render(request, 'login.html')
