@@ -5,20 +5,6 @@
 <html lang="en">
 <head>
 
-	{% if messages %}
-		{% for message in messages %}
-		<div class="alert alert-danger alert-dismissible" role="alert" style="
-		font-family: 'Source Sans Pro', sans-serif;
-		font-size: 18px;
-		padding: 10px 55px;
-		margin-top: 4px;
-		border-radius: 5px;
-		word-spacing: 10px;">
-			{{ message }}
-			<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" >&times;</button>
-		  </div>
-		{% endfor %}
-	{% endif %}
 
 	{% if user.is_authenticated %}
 
@@ -60,6 +46,20 @@
 				<form class="login100-form validate-form" method="POST" action="{% url 'login' %}">
 					{% csrf_token %}
 					<span class="login100-form-title p-b-43">
+					{% if messages %}
+						{% for message in messages %}
+							<div class="alert alert-danger alert-dismissible" role="alert" style="
+								font-family: 'Source Sans Pro', sans-serif;
+								font-size: 18px;
+								padding: 10px 55px;
+								margin-top: 4px;
+								border-radius: 5px;
+								word-spacing: 10px;">
+								{{ message }}
+								<button type="button" class="btn-close" data-dismiss="alert" aria-label="Close" >&times;</button>
+							</div>
+						{% endfor %}
+					{% endif %}
 						Login to continue
 					</span>
 					

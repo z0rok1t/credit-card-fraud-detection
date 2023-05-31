@@ -29,7 +29,7 @@ def login_user(request):
         if user is not None:
             login(request, user)
             #messages.success(request, "You have been logged in!")
-            return redirect('home')   #profile after its created
+            return redirect('home1')   #profile after its created
         else: 
             messages.success(request, "There was an error, Try again!")
             return redirect('login')
@@ -40,5 +40,7 @@ def signup_user(request):
     return render(request, 'signup.html')
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "You have been logged out...")
+    return redirect('home')
 
