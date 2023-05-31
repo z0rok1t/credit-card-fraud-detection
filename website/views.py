@@ -63,7 +63,7 @@ def signup_user(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         if password1 != password2:
-            return HttpResponse("Enter the same password!!")
+            messages.success(request, "Passwords do NOT match, Try Again!!")
         else:
             user = User.objects.create_user(username, email, password1)
             user.save()
