@@ -4,7 +4,6 @@ from django.contrib import messages
 
 # Create your views here.
 def home(request):
-    
     return render(request, 'home.html', {})
 
 def about(request):
@@ -21,7 +20,21 @@ def home1(request):
 
 def login_user(request):
 
-    return render(request, 'login.html')
+    if request.method == "POST":
+        #Check to see if logging in 
+        username = request.POST['username']
+        password = request.POST['password']
+        #Authenticate 
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            #messages.success(request, "You have been logged in!")
+            return redirect('home')   #profile after its created
+        else: 
+            messages.success(request, "There was an error, Try again!")
+            return redirect('login')
+    else: 
+        return render(request, 'login.html')
 
 def signup_user(request):
     return render(request, 'signup.html')
