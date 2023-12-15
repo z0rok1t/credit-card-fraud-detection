@@ -1,0 +1,68 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylee.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'home1' %}">Welcome Mr. {{ user.username }} </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">HOME</a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="{% url 'data' %}">DATASET</a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="content" class="container mt-4">
+    <div class="alert alert-success" role="alert">
+        Congratulations! You have successfully logged in.
+      </div>
+      <br>
+    <h1>INSERT DATASET  </h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="form-group">
+        <label for="datasetName">Name of the Dataset</label>
+        <input type="text" class="form-control" id="datasetName" placeholder="Enter the name of the dataset">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="insertDataset">Insert Dataset</label>
+        <!--<input type="file" class="form-control-file" id="insertDataset">-->
+        {{form}}
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="margin-top: 0.6em; margin-bottom: 0.6em;">Upload Dataset</button>
+      <br>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="5" placeholder="Enter a description"></textarea>
+      </div>
+    </form>
+  </section>
+
+  <footer style="background-color: rgb(42, 45, 79);padding-top: 1em; text-align: center;">
+    <p style="color: rgb(255, 255, 255); font-style: inherit; font-weight: bold;">&copy;2023 Admin Homepage. All rights reserved</p>
+  </footer>
+
+  <script src="{% static '/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

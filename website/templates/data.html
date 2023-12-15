@@ -1,0 +1,169 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylee.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+    <a class="navbar-brand" href="{% url 'home1' %}">Welcome Mr. {{ user.username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home1' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'data' %}">DATASET</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="results.html">RESULTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <h1>DATASET</h1>
+
+    <table id="csvTable" class="table table-striped">
+      <thead>
+        <tr>
+            <th>id</th>
+            <th>Time</th>
+            <th>V1</th>
+            <th>V2</th>
+            <th>V3</th>
+            <th>V4</th>
+            <th>V5</th>
+            <th>V6</th>
+            <th>V7</th>
+            <th>V8</th>
+            <th>V9</th>
+            <th>V10</th>
+            <th>V11</th>
+            <th>V12</th>
+            <th>V13</th>
+            <th>V14</th>
+            <th>V15</th>
+            <th>V16</th>
+            <th>V17</th>
+            <th>V18</th>
+            <th>V19</th>
+            <th>V20</th>
+            <th>V21</th>
+            <th>V22</th>
+            <th>V23</th>
+            <th>V24</th>
+            <th>V25</th>
+            <th>V26</th>
+            <th>V27</th>
+            <th>V28</th>
+            <th>Amount</th>
+            <th>Class</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in dataset %}
+            <tr>
+              <td>{{data.id}}</td>
+              <td>{{data.Time}}</td>
+              <td>{[data.V1]}</td>
+              <td>{{data.V2}}</td>
+              <td>{{data.V3}}</td>
+              <td>{{data.V4}}</td>
+              <td>{{data.V5}}</td>
+              <td>{{data.V6}}</td>
+              <td>{{data.V7}}</td>
+              <td>{{data.V8}}</td>
+              <td>{{data.V9}}</td>
+              <td>{{data.V10}}</td>
+              <td>{{data.V11}}</td>
+              <td>{{data.V12}}</td>
+              <td>{{data.V13}}</td>
+              <td>{{data.V14}}</td>
+              <td>{{data.V15}}</td>
+              <td>{{data.V16}}</td>
+              <td>{{data.V17}}</td>
+              <td>{{data.V18}}</td>
+              <td>{{data.V19}}</td>
+              <td>{{data.V20}}</td>
+              <td>{{data.V21}}</td>
+              <td>{{data.V22}}</td>
+              <td>{{data.V23}}</td>
+              <td>{{data.V24}}</td>
+              <td>{{data.V25}}</td>
+              <td>{{data.V26}}</td>
+              <td>{{data.V27}}</td>
+              <td>{{data.V28}}</td>
+              <td>{{data.Amount}}</td>
+              <td>{{data.Class}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+  </div>
+
+  <script src="bootstrap.min.js"></script>
+ <!-- <script>
+    // CSV data (replace with your own CSV data)
+    const csvData = `TIME,V1,V2
+21/05/2023,0.451,-0.254
+22/05/2023,0.32,0.358
+25/05/2023,0.14,0.258
+26/05/2023,-0.255,0.147`;
+
+    // Function to parse CSV data and generate HTML table
+    function parseCSV(csv) {
+      const lines = csv.split('\n');
+      const table = document.getElementById('csvTable');
+
+      // Create table headers
+      const headers = lines[0].split(',');
+      const headerRow = table.tHead.rows[0];
+      for (let i = 0; i < headers.length; i++) {
+        const th = document.createElement('th');
+        th.textContent = headers[i];
+        headerRow.appendChild(th);
+      }
+
+      // Create table rows
+      const tbody = table.tBodies[0];
+      for (let i = 1; i < lines.length; i++) {
+        const row = document.createElement('tr');
+        const values = lines[i].split(',');
+
+        for (let j = 0; j < values.length; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = values[j];
+          row.appendChild(cell);
+        }
+
+        tbody.appendChild(row);
+      }
+    }
+
+    // Call the parseCSV function with the CSV data
+    parseCSV(csvData);
+  </script>-->
+
+
+<footer style="background-color: rgb(42, 45, 79);padding-top: 1em; text-align: center;">
+  <p style="color: rgb(255, 255, 255); font-style: inherit; font-weight: bold;">&copy;2023 Admin Homepage. All rights reserved</p>
+</footer>
+
+  <script src="{% static '/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

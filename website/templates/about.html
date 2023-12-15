@@ -1,0 +1,84 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="logo" width="130" height="60" style="margin:10px -50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}"> HOME <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}"> ABOUT </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'contact' %}"> CONTACT </a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item"> 
+              <a class="nav-link"  href="{% url 'logout' %}">LOG OUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'login' %}">LOG IN</a>
+            </li>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="banner" class="jumbotron jumbotron-fluid bg-custom text-white text-center">
+    <div class="container">
+      <h1 class="display-4">Credit Card Fraud Detection</h1>
+      <p class="lead">Protecting Your Finances</p>
+    </div>
+  </section>
+  <br>
+  <br>
+  <section id="content" class="container">
+    <h2 style="color: rgb(8, 43, 141); text-align: center; font-family: 'Times New Roman'; font-weight: bold;"> <u>ABOUT US </u></h2>
+    <br>
+    <p>We are a team of students of INPT , working in the field of cybersecurity. Our focus is on applying techniques of artificial intelligence
+        to help in detecting fraudulent transactions. Our work is based also on Machine learning to analyse data of a bank and provide the suspicious
+        transactions in order to alert the bank and the owner of credit card.</p>
+    <p>With the increasing complexity of fraudulent activities, traditional rule-based systems often fall short in identifying new patterns
+        and sophisticated fraud techniques. Our advanced machine learning algorithms continuously analyze vast amounts of transaction data,
+        enabling us to adapt and stay ahead of evolving fraud tactics.</p>
+    <p>
+      <h3 style="margin-top: 5%;">Team Members :</h3>
+      <ul style="list-style-type: circle;">
+        <li>AIT WAHMAN ELHOUSSAINE</li>
+        <li>IGAJANE ABDELLAH</li>
+        <li>LACHEGUR AMINE</li>
+        <li>LARHFIRI OUSSAMA ANWAR</li>
+        <li>MOUISSET HAMZA</li>
+      </ul>
+    </p>
+  </section>
+  
+
+  <footer style="background-color: rgb(101, 101, 101);padding-top: 1em; text-align: center;">
+    <p style="color: rgb(255, 255, 255); font-style: inherit; font-weight: bold;">&copy; 2023 Credit Card Fraud Detection. All rights reserved.</p>
+  </footer>
+
+  <script src="{% static '/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

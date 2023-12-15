@@ -1,0 +1,83 @@
+/* Custom Bootstrap theme styles can be added here */
+.bg-custom {
+    background-color: #2a85d4;
+  }
+
+  .text-custom {
+    color: #a5536f;
+  }
+
+html, body {
+    height: 100%;
+  }
+  nav a {
+    margin-left: 3em;
+  }
+  nav div ul li {
+    display: inline-block;
+    color: rgb(88, 214, 88);
+    margin-left: 3em;
+  }
+  nav div ul li:first-child {
+    margin-left: 35em;
+  }
+  nav div ul li:last-child {
+    margin-left: 10em;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .container {
+    flex: 1;
+  }
+/* custom.css */
+.section-image {
+    display: block;
+    width: 50%;
+    height: 30%;
+    margin-left: 25%;
+    margin-bottom: 3%;
+  }
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input[type="file"] {
+  padding-top: 6px;
+}
+
+.form-group input[type="file"]::placeholder {
+  color: #999;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-group input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #0069d9;
+}
+
+.form-group textarea::placeholder {
+  color: #999;
+}

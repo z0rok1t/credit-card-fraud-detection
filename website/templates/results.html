@@ -1,0 +1,106 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylee.css' %}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="{% url 'home1' %}">Welcome Mr. {{ user.username }}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home1' %}">HOME</a>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="{% url 'data' %}">DATASET</a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container mt-4">
+    <h1>Results</h1>
+    
+    <ul>
+    {% for prediction in predictions %}
+        {% if prediction == 1 %}
+        <li style="font-size: 20px; font-family: Arial; border-radius: 10px; padding: 10px;background-color: rgb(251, 50, 50);">{{ prediction }} Fraudulant</li>
+        {% else %}
+        <li style="font-size: 20px; font-family: Arial; border-radius: 10px; padding: 10px;background-color: rgb(0, 255, 0);">{{ prediction }} Valid </li>
+        {% endif%}
+    {% endfor %}
+    </ul>
+
+    <table id="csvTable" class="table table-striped">
+      <thead>
+        <tr></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="bootstrap.min.js"></script>
+  <!--<script>
+    // CSV data (replace with your own CSV data)
+    const csvData = `TIME,V1,V2
+21/05/2023,0.451,-0.254
+22/05/2023,0.32,0.358
+25/05/2023,0.14,0.258
+26/05/2023,-0.255,0.147`;
+
+    // Function to parse CSV data and generate HTML table
+    function parseCSV(csv) {
+      const lines = csv.split('\n');
+      const table = document.getElementById('csvTable');
+
+      // Create table headers
+      const headers = lines[0].split(',');
+      const headerRow = table.tHead.rows[0];
+      for (let i = 0; i < headers.length; i++) {
+        const th = document.createElement('th');
+        th.textContent = headers[i];
+        headerRow.appendChild(th);
+      }
+
+      // Create table rows
+      const tbody = table.tBodies[0];
+      for (let i = 1; i < lines.length; i++) {
+        const row = document.createElement('tr');
+        const values = lines[i].split(',');
+
+        for (let j = 0; j < values.length; j++) {
+          const cell = document.createElement('td');
+          cell.textContent = values[j];
+          row.appendChild(cell);
+        }
+
+        tbody.appendChild(row);
+      }
+    }
+
+    // Call the parseCSV function with the CSV data
+    parseCSV(csvData);
+  </script>-->
+
+
+<footer style="background-color: rgb(42, 45, 79);padding-top: 1em; text-align: center;">
+  <p style="color: rgb(255, 255, 255); font-style: inherit; font-weight: bold;">&copy;2023 Admin Homepage. All rights reserved</p>
+</footer>
+
+  <script src="{% static '/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}

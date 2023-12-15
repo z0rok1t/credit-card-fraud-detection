@@ -1,0 +1,84 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="logo" width="130" height="60" style="margin:10px -50px">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}"> HOME <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'contact' %}">CONTACT</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'logout' %}">LOG OUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link"  href="{% url 'login' %}">LOG IN</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="banner" class="jumbotron jumbotron-fluid bg-custom text-white text-center">
+    <div class="container">
+      <h1 class="display-4">Credit Card Fraud Detection</h1>
+      <p class="lead">Protecting Your Finances</p>
+    </div>
+  </section>
+  <br>
+  <section id="content" class="container mt-4">
+    <h2 style="color: rgb(8, 43, 141); text-align: center; font-family: 'Times New Roman'; font-weight: bold;"> <u>CONTACT-US </u></h2>
+    <p style="font-family: 'Gill Sans', Calibri; font-style: oblique;font-size: 150%; color: rgb(6, 3, 28);margin-left: 2em;">Feel free and get in touch with us.</p>
+
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </section>
+
+  <footer style="background-color: rgb(101, 101, 101);padding-top: 1em; text-align: center;">
+    <p style="color: rgb(255, 255, 255); font-style: inherit; font-weight: bold;">&copy; 2023 Credit Card Fraud Detection. All rights reserved.</p>
+  </footer>
+
+  <script src="{% static '/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock %}
