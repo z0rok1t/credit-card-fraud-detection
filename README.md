@@ -1,0 +1,1 @@
+This project involves the development of a website focused on detecting fraudulent transactions on the internet. The analysis is conducted using a dataset provided by the bank, emphasizing a comprehensive approach to fraud detection in online transactions.
